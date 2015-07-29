@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.justin.eventapp.R;
+import com.example.blaisdell2.eventapp.R;
 
 
 public class MainFragment extends Fragment {

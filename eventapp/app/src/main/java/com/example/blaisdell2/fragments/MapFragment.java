@@ -7,7 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.justin.eventapp.R;
+
+import com.example.blaisdell2.eventapp.R;
 
 /**
  * Created by justin on 7/28/15.

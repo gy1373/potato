@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.justin.eventapp.R;
+import com.example.blaisdell2.eventapp.R;
 import com.example.blaisdell2.fragments.MainFragment;
 
 
