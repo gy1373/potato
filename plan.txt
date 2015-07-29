@@ -1,1 +1,42 @@
 THIS IS THE PLAN
+
+
+Justin:
+What i'm working on right now,
+	node.js server and database
+	map interface for events.
+
+Ryley:
+
+
+
+Robbie:
+
+
+
+Geun:
+
+
+
+
+To import the project
+Android Studio -> import -> potato/eventapp
+
+
+
+What needs to be done to have a working prototype:
+Listview (RecyclerView) for events - this will have the same stuff as on the maps
+A way to add events
+A way to set up profiles
+Let Me(Justin) know what is part of the event and we can figure out how to send it to the server / how I can receive it since it has to match
+
+Other stuff:
+A way to organize users into groups and manage events based on group (hella later)
+
+
+
+Options that events will have? Add and remove ideas
+--------------------
+Location
+What is at the event (video games, alchohol, etc?)
+Host information - hosts will be asked to have a profile?
