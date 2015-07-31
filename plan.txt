@@ -5,6 +5,7 @@ Justin:
 What i'm working on right now,
 	node.js server and database
 	map interface for events.
+	action bar (the bar at the top) junk.
 
 Ryley:
 

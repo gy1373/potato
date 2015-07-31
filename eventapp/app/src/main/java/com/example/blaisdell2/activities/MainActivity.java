@@ -2,6 +2,7 @@ package com.example.blaisdell2.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,10 +17,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         ServerHandler.connectToServer();
 
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity_view, new MainFragment()).commit();
         setContentView(R.layout.activity_main);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle("EventApp");
     }
 
     @Override
