@@ -16,25 +16,19 @@ public class MainFragment extends Fragment {
 
     Button testMapFragment;
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
-        return fragment;
-    }
-
     public MainFragment() {
-        // Required empty public constructor
+        //empty constructor for view pager usage
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
@@ -42,17 +36,14 @@ public class MainFragment extends Fragment {
         testMapFragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create new fragment and transaction
-                MapFragment newFragment = new MapFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack
+                // Code to replace the current fragment for testing
+                EventMapFragment newFragment = new EventMapFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.mainActivity_view, newFragment);
                 transaction.addToBackStack(null);
-
-                // Commit the transaction
                 transaction.commit();
+                //end testing code
 
             }
         });

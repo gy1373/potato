@@ -7,6 +7,7 @@ import android.view.MenuItem;
 
 import com.example.blaisdell2.eventapp.R;
 import com.example.blaisdell2.fragments.MainFragment;
+import com.example.blaisdell2.handlers.ServerHandler;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -14,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ServerHandler.connectToServer();
 
         getSupportFragmentManager().beginTransaction().add(R.id.mainActivity_view, new MainFragment()).commit();
         setContentView(R.layout.activity_main);
@@ -39,5 +42,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onDestroy()
+    {
+        super.onDestroy();
+        ServerHandler.closeConnection();
     }
 }
