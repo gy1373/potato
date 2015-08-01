@@ -41,11 +41,14 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // TODO: Check if this api code is actually connecting
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .build();
+
+        mGoogleApiClient.connect();
     }
 
     @Override
@@ -58,6 +61,7 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
         if(mMap != null)
         {
             // set map settings here
+            mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
             // not sure if this works, last location ont being set properly? BECAUSE IM NOT IN THE ATLANTIC OCEAN SIR.
             // RIGHT NOW LAST LOCATION IS NULL GGNOREGIVEUP
@@ -65,10 +69,15 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
             {
                 Log.e("YO", "yoooooo");
                 LatLng setLatLng = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(setLatLng, 13));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(setLatLng, 15.6f));
+            }
+            else
+            {
+                // Currently defaults to the illini union, because pretty much center of campus
+                LatLng setLatLng = new LatLng(40.109742, -88.227315);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(setLatLng,15.6f));
             }
         }
-
         return view;
     }
 
@@ -99,16 +108,12 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
         super.onDetach();
     }
 
-    private void centerMapOnLocation()
-    {
-
-    }
-
 
     @Override
     public void onConnected(Bundle bundle) {
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
+
     }
 
     @Override

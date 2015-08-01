@@ -31,8 +31,19 @@ A way to add events
 A way to set up profiles
 Let Me(Justin) know what is part of the event and we can figure out how to send it to the server / how I can receive it since it has to match
 
-Other stuff:
+Other implementable stuff:
 A way to organize users into groups and manage events based on group (hella later)
+User profiles and Event profiles, user profiles can report how "active" they are etc.
+Event/host profiles should be more indepth so not sketch - geuns idea
+Filter events in list by distance
+
+ACTIONBAR/TOOLBAR on top:
+tabs to switch between
+	 map
+	 list of events (organized by distance)
+
+Button to create new event
+
 
 
 
