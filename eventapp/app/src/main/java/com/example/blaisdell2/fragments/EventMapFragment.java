@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * Created by justin on 7/28/15.
@@ -63,8 +64,7 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
             // set map settings here
             mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
-            // not sure if this works, last location ont being set properly? BECAUSE IM NOT IN THE ATLANTIC OCEAN SIR.
-            // RIGHT NOW LAST LOCATION IS NULL GGNOREGIVEUP
+
             if(mLastLocation != null)
             {
                 Log.e("YO", "yoooooo");
@@ -76,6 +76,9 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
                 // Currently defaults to the illini union, because pretty much center of campus
                 LatLng setLatLng = new LatLng(40.109742, -88.227315);
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(setLatLng,15.6f));
+
+                // example of adding a marker
+                addMarker(40.109742, -88.227315, "Test Marker");
             }
         }
         return view;
@@ -111,6 +114,9 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
 
     @Override
     public void onConnected(Bundle bundle) {
+        //TODO: Find out why this is returning NULL
+        // not sure if this works, last location ont being set properly? BECAUSE IM NOT IN THE ATLANTIC OCEAN SIR.
+        // RIGHT NOW LAST LOCATION IS NULL GGNOREGIVEUP
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(
                 mGoogleApiClient);
 
@@ -124,5 +130,13 @@ public class EventMapFragment extends Fragment implements GoogleApiClient.Connec
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
+    }
+
+
+    private void addMarker(double Lat, double Long, String eventName)
+    {
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(Lat, Long))
+                .title(eventName));
     }
 }

@@ -44,7 +44,6 @@ public class MainFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
                 //end testing code
-
             }
         });
         return view;
